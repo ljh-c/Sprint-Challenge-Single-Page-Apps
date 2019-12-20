@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 
 export default function CharacterCard({ char }) {
   return (
@@ -10,8 +10,9 @@ export default function CharacterCard({ char }) {
           <h3>{char.name}</h3>
         </CardTitle>
       </CardBody>
-      <p>Status: <strong>{char.status}</strong></p>
-      <p>Species: <strong>{char.species}</strong></p>
+      <CardText>Status: <strong>{char.status}</strong></CardText>
+      <CardText>Species: <strong>{char.species}</strong></CardText>
+      <CardText>Location: <strong>{char.location.name}</strong></CardText>
     </Card>
   );
 }
