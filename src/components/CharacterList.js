@@ -14,19 +14,22 @@ export default function CharacterList() {
       // console.dir(response.data.results);
       // console.dir(response.data.results[0]);
       setCharacters(response.data.results);
+      setResults(response.data.results);
     })
     .catch(error => {
       console.log('Data not returned', error);
     })
   }, []);
 
+  const [results, setResults] = useState([]);
+
   return (
     <>
-    <SearchForm characters={characters} />
+    <SearchForm characters={characters} setResults={setResults} />
 
     <section className="character-list grid-view">
       <h2>Characters</h2>
-      {characters.map(char => {
+      {results.map(char => {
         return <CharacterCard char={char} key={char.id} />
       })}
     </section>

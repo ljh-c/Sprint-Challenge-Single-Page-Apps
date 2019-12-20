@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function SearchForm() {
+export default function SearchForm({ characters, setResults }) {
   const [query, setQuery] = useState('');
 
   const handleChange = event => {
-    console.log(event.target.value);
-    console.log(query);
+    // console.log(event.target.value);
     setQuery(event.target.value);
   };
+
+  useEffect(() => {
+    // returns new filtered array
+    const search = characters.filter(char => {
+      return char.name.toLowerCase().includes(query.toLowerCase());
+    });
+
+    setResults(search);
+  }, [query]);
 
   return (
     <section className="search-form">
