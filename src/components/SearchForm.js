@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function SearchForm({ characters, setResults, query, setQuery }) {
-  
-
   const handleChange = event => {
     // console.log(event.target.value);
     setQuery(event.target.value);

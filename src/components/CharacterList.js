@@ -18,8 +18,8 @@ export default function CharacterList() {
       // console.dir(response.data);
       // console.dir(response.data.results);
       // console.dir(response.data.results[0]);
-      setCharacters(response.data.results);
-      setResults(response.data.results);
+      setCharacters([...characters, ...response.data.results]);
+      setResults([...results, ...response.data.results]);
     })
     .catch(error => {
       console.log('Data not returned', error);
