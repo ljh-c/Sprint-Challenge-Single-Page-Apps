@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
+import PageBar from "./PageBar";
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -21,18 +23,30 @@ export default function CharacterList() {
     })
   }, []);
 
-  const [results, setResults] = useState([]);
+  // * * * PAGINATION
+  const pageSize = 2;
+  const pageCount = Math.ceil(results.length / pageSize);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handleClick = (event, index) => {
+    event.preventDefault();
+    setCurrentPage(index);
+  };
 
   return (
     <>
     <SearchForm characters={characters} setResults={setResults} />
 
+    <PageBar handleClick={handleClick} currentPage={currentPage} pageCount={pageCount} />
+
     <section className="character-list grid-view">
       <h2>Characters</h2>
-      {results.map(char => {
+      {results.slice(currentPage * pageSize, (currentPage + 1) * pageSize)
+      .map(char => {
         return <CharacterCard char={char} key={char.id} />
       })}
     </section>
     </>
   );
 }
+
