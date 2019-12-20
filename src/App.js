@@ -8,6 +8,7 @@ export default function App() {
   return (
     <main>
       <Header />
+      
       <Link to={"/"} className="link">
         Home
       </Link>

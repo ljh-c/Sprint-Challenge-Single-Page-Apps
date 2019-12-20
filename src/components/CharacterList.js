@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
@@ -20,11 +21,15 @@ export default function CharacterList() {
   }, []);
 
   return (
+    <>
+    <SearchForm characters={characters} />
+
     <section className="character-list grid-view">
       <h2>Characters</h2>
       {characters.map(char => {
         return <CharacterCard char={char} key={char.id} />
       })}
     </section>
+    </>
   );
 }
