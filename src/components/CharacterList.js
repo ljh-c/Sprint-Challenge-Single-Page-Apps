@@ -7,6 +7,7 @@ import PageBar from "./PageBar";
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [results, setResults] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -33,9 +34,13 @@ export default function CharacterList() {
     setCurrentPage(index);
   };
 
+  useEffect(() => {
+    if (query.length > 0) setCurrentPage(0);
+  }, [query]);
+
   return (
     <>
-    <SearchForm characters={characters} setResults={setResults} />
+    <SearchForm characters={characters} setResults={setResults} query={query} setQuery={setQuery} />
 
     <PageBar handleClick={handleClick} currentPage={currentPage} pageCount={pageCount} />
 
