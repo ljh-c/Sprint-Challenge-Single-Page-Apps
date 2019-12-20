@@ -12,7 +12,7 @@ export default function App() {
         Home
       </Link>
       <span>&nbsp;</span>
-      <Link to={"/characters"} className="Link">
+      <Link to={"/characters"} className="link">
         Characters
       </Link>
 
