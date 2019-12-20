@@ -24,7 +24,7 @@ export default function CharacterList() {
   }, []);
 
   // * * * PAGINATION
-  const pageSize = 2;
+  const pageSize = 3;
   const pageCount = Math.ceil(results.length / pageSize);
   const [currentPage, setCurrentPage] = useState(0);
 
