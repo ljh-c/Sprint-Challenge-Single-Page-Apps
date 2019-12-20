@@ -8,10 +8,20 @@ export default function App() {
   return (
     <main>
       <Header />
+      <Link to={"/"} className="link">
+        Home
+      </Link>
+      <span>&nbsp;</span>
+      <Link to={"/characters"} className="Link">
+        Characters
+      </Link>
+
       <Route exact path="/">
         <WelcomePage />
       </Route>
-      <CharacterList />
+      <Route path="/characters">
+        <CharacterList />
+      </Route>
     </main>
   );
 }
