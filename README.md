@@ -27,6 +27,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
+`With client-side routing, less data is processed between views of a website, which makes navigating through webpages faster. (No reloading the same components between every page.)`
+
 > Answer:
 
 ## Project Set Up
